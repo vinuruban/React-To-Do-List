@@ -1,26 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import Todos from "./components/Todos"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+
+  state = {
+    todos: [ //array - []
+      { //objects - {}
+        id: 1,
+        title: 'Wake up',
+        completed: false
+      },
+      {
+        id: 1,
+        title: 'Go gym',
+        completed: false
+      },
+      {
+        id: 3,
+        title: 'Go sleep',
+        completed: false
+      }
+    ]
+  }
+
+  render() {
+    console.log(this.state)
+    return (
+      <div className="App">
+        <h1>App.js</h1>
+        <Todos tod={this.state.todos}/>
+      </div>
+    );
+  }
 }
 
 export default App;
