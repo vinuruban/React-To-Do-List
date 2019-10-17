@@ -12,7 +12,7 @@ class App extends Component {
         completed: false
       },
       {
-        id: 1,
+        id: 2,
         title: 'Go gym',
         completed: false
       },
@@ -24,12 +24,35 @@ class App extends Component {
     ]
   }
 
+  changeTodos = () => {
+    //this deletes the record, based on an index that we pass through, and return the new array
+    this.setState({
+      todos: [ //array - []
+      { //objects - {}
+        id: 1,
+        title: 'Wake up',
+        completed: false
+      },
+      {
+        id: 2,
+        title: 'Dont go gym',
+        completed: false
+      },
+      {
+        id: 3,
+        title: 'Eat sweets',
+        completed: false
+      }
+    ]
+        //filter does not mutate but rather creates a new array, and is a preferred method for modifying arrays in JavaScript. This particular method is testing an index vs. all the indices in the array, and returning all but the one that is passed through.
+    })
+}
+
   render() {
-    console.log(this.state)
     return (
       <div className="App">
         <h1>App.js</h1>
-        <Todos tod={this.state.todos}/>
+        <Todos todosParam={this.state.todos} cTodos={this.changeTodos}/>
       </div>
     );
   }
