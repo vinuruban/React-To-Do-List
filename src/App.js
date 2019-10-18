@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Todos from "./components/Todos"
+import Todos from "./components/Todos";
 
 class App extends Component {
 
@@ -14,7 +14,7 @@ class App extends Component {
       {
         id: 2,
         title: 'Go gym',
-        completed: false
+        completed: true
       },
       {
         id: 3,
@@ -24,7 +24,7 @@ class App extends Component {
     ]
   }
 
-  changeTodos = () => {
+  markComplete = (e) => {
     //this deletes the record, based on an index that we pass through, and return the new array
     this.setState({
       todos: [ //array - []
@@ -52,7 +52,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>App.js</h1>
-        <Todos todosParam={this.state.todos} cTodos={this.changeTodos}/>
+        <Todos todosParam={this.state.todos} cTodos={this.changeTodos} markComplete1={this.markComplete}/>
       </div>
     );
   }
